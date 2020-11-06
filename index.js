@@ -209,22 +209,15 @@ Practice accessing data above by console.log-ing following items:
 (1) Name of the first artist (0th index) in the array
 (2) Bio of the third artist (2nd index) in the array */
 
-// console.log(artists[0]);
-// console.log(artists[2].bio);
+console.log(artists[0]);
+console.log(artists[2].bio);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. Use an array method to fix this issue and console.log() to check your work. */
 
-function changeName(array, artName, newName) {
-  for (i in array) {
-    if (array[i].name.includes(artName)) {
-      array[i].name = newName;
-    }
-  }
-  return array;
-}
+artists[8].name = "Vincent Van Gogh";
 
-console.log(changeName(artists, "Vincent Van Dough", "Vincent Van Gogh"));
+console.log(artists[8].name);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Create a function called `getArtistByIndex` that takes two arguments:
@@ -269,9 +262,12 @@ Create a function called `removeArtist` that takes two arguments:
  * For example, if removeArtist is invoked with the data and the number 0,
  * it will remove Amedeo Modigliani from our dataset and log the number 19.  
 */
-function removeArtist(/*Your Code Here*/) {
-   /*Your Code Here*/
+function removeArtist() {
+  artists.splice(0, 1);
+  return artists.length;
 }
+
+console.log(removeArtist());
    
 
 /**
@@ -289,9 +285,20 @@ bio: Add 1-2 sentences (or use lorem ipsum)
 
 At the end, this function should return the new array with information added"*/
 
-function addArtist(/*Your Code Here*/){
-    /*Your Code Here*/
+function addArtist(){
+  let newArtist = {
+    id: 20,
+    name: "Tara Timmerman", 
+    years: "1995 - 2020",
+    genre: "Web Design", 
+    nationality: "American",
+    bio: "Godfather ipsum dolor sit amet. In Sicily, women are more dangerous than shotguns."
   }
+  artists.push(newArtist);
+  return artists;
+}
+
+console.log(addArtist());
 
   
 
@@ -304,12 +311,17 @@ and returns an array with names of artists who painted more than 100 paintings.
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ..."Albrecht Dürer"]*/
 
-function lotsOfArt(/*Your Code Here*/){
-  /*Your Code Here*/
+let manyArt = [];
+function lotsOfArt(array){
+  for (i in artists) {
+    if (artists[i].paintings >= 100) {
+      manyArt.push(artists[i].name);
+    }
+  }
+  return manyArt;
 }
 
-
-
+console.log(lotsOfArt(artists));
 
 // 🎨🎨 STRETCH 🎨🎨//
 /* 💪💪💪💪💪💪 STRETCH 1: 💪💪💪💪💪💪 
